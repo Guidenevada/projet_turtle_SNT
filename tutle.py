@@ -42,7 +42,6 @@ from time import sleep # importation de sleep
 from random import randint # importation de randint
 import sys   # importation de sys
 
-from __init__.dep import * # on importe une dépendance
     # setres() # on définit la taille de l'écran
     # setpos(x, y) # on définit la position de la tortue au milieu de l'écran
     # setcolor(r, g, b) # on définit la couleur de la tortue
