@@ -15,6 +15,7 @@
                 pour que la tortue soit placée au milieu de l'écran car si on utilise un écran non standard 1920x1080, la tortue ne sera pas placée au milieu de l'écran
                 ou x = screensize[0] et y = screensize[1]
                 setpos(x - x / 2, y - y / 2)
+                position par défault de 0,0 est en bas à gauche
     setcolor() s'utilise avec les valeurs RGB
                 par exemple pour une couleur rouge
                 on utilise r = 255 et g = 0 et b = 0
@@ -33,28 +34,62 @@
 # importation des biibliothèques
 
 
+
+
 import turtle as tt # importation de turtle                                                                       
 import ctypes # importation de ctypes                                                                             
 from time import sleep # importation de sleep                                                                     
 from random import randint # importation de randint
 import sys   # importation de sys
-sys.path.append('__init__') # on ajoute le chemin de __init__
-from dep import * # on importe une dépendance
+
+from __init__.dep import * # on importe une dépendance
     # setres() # on définit la taille de l'écran
     # setpos(x, y) # on définit la position de la tortue au milieu de l'écran
     # setcolor(r, g, b) # on définit la couleur de la tortue
 
 
 
+#*************************************//écrit par Baptiste//*******************************************************
+
+user32 = ctypes.windll.user32 # user32 est une fonction de ctypes 
+screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1) # on récupère la taille de l'écran 
+
+
+long = screensize[0]
+haut = screensize[1]
+
+    
+def setpos(x, y): # on définit la position de la tortue sans ecrire avec le crayon
+    tt.setup(long, haut, 0, 0) # on définit la taille de l'écran 
+    tt.setworldcoordinates(0, 0, long, haut) # on définit la taille de l'écran
+    tt.penup()
+    tt.goto(x, y)
+    tt.pendown()
+
+def setcolor(r, g, b): # on définit la couleur du crayon
+    tt.pencolor(r, g, b)
+
+    
 
 
 
+
+
+
+#************************************************************************************************************************    
+
+
+
+
+
+x = 0
+y = 0
 
 def main():
     tt.reset()
-    dep.setres() # on définit la taille de l'écran
-    dep.setpos(x, y) # on définit la position de la tortue au milieu de l'écran
-    
+    setpos(x, y) # on définit la position de la tortue au milieu de l'écran
+    tt.forward(100)
+    sleep(5)    
     tt.done()
 
 if __name__ == '__main__': # on lance le programme
