@@ -52,7 +52,7 @@ screensize = ctypes.windll.user32.GetSystemMetrics(0), ctypes.windll.user32.GetS
 long = screensize[0]              
 haut = screensize[1]
 middle = long /2, haut /2
-spd = 0
+spd = 0     
 r = randint(0, 255)
 g = randint(0, 255)                             
 b = randint(0, 255)
@@ -79,6 +79,7 @@ def setpos(coo): # on définit la position de la tortue sans ecrire avec le cray
 
 def squareandcircle(ray):
    
+
     for i in range(4):
         r = randint(0, 255)
         g = randint(0, 255)
@@ -98,88 +99,100 @@ def triangle(segment):
     for i in range(3):
         tt.forward(segment)
         tt.left(120)
+def square(ray):
+        for i in range(4):
+            tt.forward(ray)
+            tt.right(90)
 
 def main2(ray):
-    ray = ray + 1
-    setpos((0,0))
-    tt.forward(long /2)
-    tt.left(90)
-    tt.forward(haut /2)
-    tt.color("red")
-    tt.circle(ray)
-    tt.color("black")
-    tt.forward(haut /2)
-    tt.left(180)
-    tt.forward(haut /2)
-    tt.right(90)
-    tt.forward(ray)
+    setpos((long -long, haut / 2))
+
+    for x in range(32):
+        square(ray)
+        triangle(ray)
+        tt.forward(ray)
+#*************************************************************************************************************************     
+
+
+    
+
+#*********************************************************// écrit par Nathan Yvon****************************************
 
 
 
 def main3(ray):
-    segment = ray
-    angle = 360
+    
+    setpos((ray, haut / 1.25))
+    for c in range(15):
+        tt.circle(ray)
+        r = randint(0, 255)
+        g = randint(0, 255)
+        b = randint(0, 255)
+        tt.pencolor((r, g, b))
+        tt.forward(100)
     setpos(middle)
-    tt.begin_fill()
-    triangle(segment)
-    tt.end_fill()
-    for i in range(5):
-        angle = 120
-        tt.circle(ray, angle)
-        ray = ray + ray / 2
-    tt.forward(ray)
-    setpos(middle)
-    tt.forward(ray /2)
-    tt.left(90)
-    tt.forward(haut / 2)
-    tt.left(90)
-    tt.forward(long /3)
-    tt.left(90)
-    r = randint(0, 255)
-    g = randint(0, 255)
-    b = randint(0, 255)
-    tt.pencolor((r, g, b))
-    tt.forward(ray)
-    tt.right(90)
-    tt.forward(long /3)
-    tt.left(180)
-    tt.forward(long /3)
-    tt. left(35)
-    tt.forward(long /2)
 
-    tt.done()
+
+
+    
+    
+
+def main4(ray):
+    setpos((0 , 150))
+    for c in range(20):
+        r = randint(0, 255)
+        g = randint(0, 255)
+        b = randint(0, 255)
+        tt.pencolor((r, g, b))
+        tt.forward(ray)
+        tt.right(90)
+        tt.forward(ray)
+        tt.left(90)
+        tt.forward(ray)
+        tt.left(90)
+        tt.forward(ray)
+        tt.right(90)
+        
+
+
     
 
 
 
-
-
-
 def main1(ray):
-
-    setpos(middle) # on définit la position de la tortue au milieu de l'écran    
-    squareandcircle(ray)
-    setpos(middle)
-    tt.begin_fill()
-    triangle(100)
-    tt.end_fill()
-    tt.done()
-
+    setpos((long -long, haut / 3))
+    
+    tt.left(45)
+    for i in range(25):
+        
+        
+        tt.forward(ray)
+        tt.right(90)
+        r = randint(0, 255)
+        g = randint(0, 255)
+        b = randint(0, 255)
+        tt.pencolor((r, g, b))
+        tt.forward(ray)
+        tt.left(90)
+    setpos((long -long, haut / 2))
+    tt.right(45)
+    
+#**********************************************//écrit par baptiste*****************************************************
 if __name__ == '__main__': # on lance le programme
     setscreen(long, haut)
+    tt.speed(10)
     tt.reset()
-    ch = randint(0,3) # on choisit un nombre aléatoire entre 1 et 3 pour lancer un programme aléatoire
-    print("tirage au sort")
-    sleep(0.5)
-    print("le nombre tiré est ",ch)
-    if ch == 1:
-        main1(ray)
-    if ch == 2:
-        main2(ray)
-    if ch == 3:
-        main3(ray)  
-    else:
-        print("pas de chance, vous avez tiré le mauvais nombre")
+    main1(ray)
+    main2(ray)
+    main3(ray)
+    main4(ray)
+    setpos(middle)
+    
+
+
+    
+    
+    tt.done()
 
     tt.exitonclick()
     
