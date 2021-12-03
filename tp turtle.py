@@ -175,7 +175,7 @@ def main1(ray): #premiere frize
 #**********************************************//écrit par baptiste*****************************************************
 if __name__ == '__main__': # on lance le programme
     setscreen(long, haut)
-    tt.speed(10)
+    tt.speed(spd)
     tt.reset()
     main1(ray)
     main2(ray)
