@@ -17,11 +17,6 @@
                 setpos(x - x / 2, y - y / 2)
                 position par défault de 0,0 est en bas à gauche
 
-    le programme est doit se lancer avec 4 possibilitées : 0 le programme ne se lance pas
-                                                           1 il execute la fonction main1()
-                                                           2 il execute la fonction main2()
-                                                           3 il execute la fonction main3()
-
 
 
 
@@ -49,16 +44,16 @@ from typing import AsyncGenerator   # importation de sys
 
 #******************************************configuration des variables**********************************************
 screensize = ctypes.windll.user32.GetSystemMetrics(0), ctypes.windll.user32.GetSystemMetrics(1) # on récupère la taille de l'écran 
-long = screensize[0]              
-haut = screensize[1]
-middle = long /2, haut /2
+long = screensize[0]  # on définie la longueur de l'écran
+haut = screensize[1] # on définie la hauteur de l'écran
+middle = long /2, haut /2 # defini le milieur de l'écran
 spd = 0     
-r = randint(0, 255)
-g = randint(0, 255)                             
-b = randint(0, 255)
+r = 0
+g = 0                            
+b = 0   # mettre la couleur à noir
 ray = 50
 
-tt.speed(0)
+tt.speed(spd)
 tt.colormode(255)
 #*****************************************************************************************************************
 
@@ -77,7 +72,7 @@ def setpos(coo): # on définit la position de la tortue sans ecrire avec le cray
 
 
 
-def squareandcircle(ray):
+def squareandcircle(ray):  # on définit la fonction qui permet de faire un carré et des cercles de plus en plus grands
    
 
     for i in range(4):
@@ -95,16 +90,16 @@ def squareandcircle(ray):
         ray = ray + ray / 2
         tt.penup()
 
-def triangle(segment):
+def triangle(segment): # on définit la fonction qui permet de faire un triangle
     for i in range(3):
         tt.forward(segment)
         tt.left(120)
-def square(ray):
+def square(ray): # on définit la fonction qui permet de faire un carré
         for i in range(4):
             tt.forward(ray)
             tt.right(90)
 
-def main2(ray):
+def main2(ray): # 2 eme frize
     setpos((long -long, haut / 2))
 
     for x in range(32):
@@ -120,7 +115,7 @@ def main2(ray):
 
 
 
-def main3(ray):
+def main3(ray):# 3 eme frize
     
     setpos((ray, haut / 1.25))
     for c in range(15):
@@ -137,7 +132,7 @@ def main3(ray):
     
     
 
-def main4(ray):
+def main4(ray): # 4 eme frize
     setpos((0 , 150))
     for c in range(20):
         r = randint(0, 255)
@@ -157,9 +152,9 @@ def main4(ray):
 
     
 
+ 
 
-
-def main1(ray):
+def main1(ray): #premiere frize
     setpos((long -long, haut / 3))
     
     tt.left(45)
