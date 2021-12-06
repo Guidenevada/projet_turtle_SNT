@@ -27,6 +27,7 @@
 
 
 
+import time
 import turtle as tt # importation de turtle                                                                       
 import ctypes # importation de ctypes                                                                             
 from time import sleep # importation de sleep                                                                     
@@ -47,7 +48,7 @@ screensize = ctypes.windll.user32.GetSystemMetrics(0), ctypes.windll.user32.GetS
 long = screensize[0]  # on définie la longueur de l'écran
 haut = screensize[1] # on définie la hauteur de l'écran
 middle = long /2, haut /2 # defini le milieur de l'écran
-spd = 0     
+spd = 0
 r = 0
 g = 0                            
 b = 0   # mettre la couleur à noir
@@ -99,7 +100,27 @@ def square(ray): # on définit la fonction qui permet de faire un carré
             tt.forward(ray)
             tt.right(90)
 
-def main2(ray): # 2 eme frize
+
+
+def main1(ray): #premiere frize
+    setpos((long -long, haut / 3))
+    
+    tt.left(45)
+    for i in range(25):
+        
+        
+        tt.forward(ray)
+        tt.right(90)
+        r = randint(0, 255)
+        g = randint(0, 255)
+        b = randint(0, 255)
+        tt.pencolor((r, g, b))
+        tt.forward(ray)
+        tt.left(90)
+    setpos((long -long, haut / 2))
+    tt.right(45)
+
+def main2(ray): # 2nd frise
     setpos((long -long, haut / 2))
 
     for x in range(32):
@@ -154,42 +175,35 @@ def main4(ray): # 4 eme frize
 
  
 
-def main1(ray): #premiere frize
-    setpos((long -long, haut / 3))
-    
-    tt.left(45)
-    for i in range(25):
-        
-        
-        tt.forward(ray)
-        tt.right(90)
-        r = randint(0, 255)
-        g = randint(0, 255)
-        b = randint(0, 255)
-        tt.pencolor((r, g, b))
-        tt.forward(ray)
-        tt.left(90)
-    setpos((long -long, haut / 2))
-    tt.right(45)
+
     
 #**********************************************//écrit par baptiste*****************************************************
 if __name__ == '__main__': # on lance le programme
-    setscreen(long, haut)
-    tt.speed(spd)
-    tt.reset()
-    main1(ray)
-    main2(ray)
-    main3(ray)
-    main4(ray)
-    setpos(middle)
-    
+    try:
+        setscreen(long, haut)
+        tt.reset()
+        print("la vitesse par defaut est de 0")
+        spd = input("Veuillez entrer la vitesse de la tortue [1-10]\n: ")
+        if spd == '':
+            spd = 0
+        else:
+            spd =int(spd)
+        
+        print(spd)
+        tt.speed(spd)
 
+        main1(ray)
+        main2(ray)
+        main3(ray)
+        main4(ray)
+        setpos(middle)
+        tt.done()
+        tt.exitonclick()
+    
+    except:
+        print('Erreur')
+        time.sleep(5)
+        sys.exit()
 
-    
-    
-    tt.done()
-
-    tt.exitonclick()
-    
      # on ferme la fenêtre
 #************************************************************************************************************************
