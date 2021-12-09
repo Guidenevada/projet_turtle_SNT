@@ -1,3 +1,75 @@
+baptiste
+#6360
+
+[10:11] baptiste:
+[10:11] Virtua:
+[10:16] baptiste: https://github.com/Guidenevada/projet_turtle_SNT
+GitHub
+GitHub - Guidenevada/projet_turtle_SNT
+Contribute to Guidenevada/projet_turtle_SNT development by creating an account on GitHub.
+
+[10:16] baptiste:
+"""
+    tuto pour mon binome:
+    setres()  ne doit pas être modifié
+    setpos(x, y) s'utilise avec les coordonnées
+                avec x qui est la largeur de l'écran
+                et y qui est la hauteur de l'écran
+Afficher plus
+tp_turtle.py
+6 Ko
+[16:47] baptiste:
+"""
+    tuto pour mon binome:
+    setres()  ne doit pas être modifié
+    setpos(x, y) s'utilise avec les coordonnées
+                avec x qui est la largeur de l'écran
+                et y qui est la hauteur de l'écran
+Afficher plus
+tp_turtle.py
+7 Ko
+[16:48] baptiste: https://github.com/Guidenevada/projet_turtle_SNT
+GitHub
+GitHub - Guidenevada/projet_turtle_SNT
+Contribute to Guidenevada/projet_turtle_SNT development by creating an account on GitHub.
+
+[18:35] Virtua: Merci 😁😁
+[13:47] baptiste:
+"""
+    tuto pour mon binome:
+    setres()  ne doit pas être modifié
+    setpos(x, y) s'utilise avec les coordonnées
+                avec x qui est la largeur de l'écran
+                et y qui est la hauteur de l'écran
+Afficher plus
+tp_turtle.py
+7 Ko
+[13:50] baptiste: nouvelle update, plus d'optimisation
+[16:15] baptiste: mise à jour: ajout du choix de la vitesse et ajout de la vitesse par defaut
+[16:15] baptiste: correction d'un bug avec la vitesse
+[16:15] baptiste:
+"""
+    tuto pour mon binome:
+    setres()  ne doit pas être modifié
+    setpos(x, y) s'utilise avec les coordonnées
+                avec x qui est la largeur de l'écran
+                et y qui est la hauteur de l'écran
+Afficher plus
+tp_turtle.py
+7 Ko
+[20:31] baptiste: je vais bientot upload la version finale du TP
+[20:34] Virtua: Ah oki 😁😁
+[20:50] baptiste:
+"""
+    tuto pour mon binome:
+    setres()  ne doit pas être modifié
+    setpos(x, y) s'utilise avec les coordonnées
+                avec x qui est la largeur de l'écran
+                et y qui est la hauteur de l'écran
+Afficher plus
+tp_turtle_Yvon_Nathan_Brenet_Baptiste.py
+7 Ko
+﻿
 """
     tuto pour mon binome:
     setres()  ne doit pas être modifié
@@ -49,7 +121,7 @@ long = screensize[0]  # on définie la longueur de l'écran
 haut = screensize[1] # on définie la hauteur de l'écran
 middle = long /2, haut /2 # defini le milieur de l'écran
 spd = 0
-r = 0
+r = 0 
 g = 0                            
 b = 0   # mettre la couleur à noir
 ray = 50
@@ -128,10 +200,6 @@ def main2(ray): # 2nd frise
         triangle(ray)
         tt.forward(ray)
 #*************************************************************************************************************************     
-
-
-    
-
 #*********************************************************// écrit par Nathan Yvon****************************************
 
 
@@ -171,8 +239,6 @@ def main4(ray): # 4 eme frize
         
 
 
-    
-
  
 
 
@@ -197,8 +263,15 @@ if __name__ == '__main__': # on lance le programme
         main3(ray)
         main4(ray)
         setpos(middle)
+        for i in range(10):
+            sleep(0.1)
+            r = randint(0, 255)
+            g = randint(0, 255)
+            b = randint(0, 255)
+            tt.bgcolor((r, g, b))
         tt.done()
         tt.exitonclick()
+        
     
     except:
         print('Erreur')
@@ -207,3 +280,5 @@ if __name__ == '__main__': # on lance le programme
 
      # on ferme la fenêtre
 #************************************************************************************************************************
+tp_turtle_Yvon_Nathan_Brenet_Baptiste.py
+7 Ko
